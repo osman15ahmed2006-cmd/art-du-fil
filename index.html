@@ -4,9 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>L'Art du Fil – Père & Fils | Nancy</title>
+  <title>L'Art du Fil – Père & Fils | Retouche, Pressing & Broderie à Nancy</title>
 
-  <meta name="description" content="L'Art du Fil – Père & Fils à Nancy : retouches, pressing, broderie personnalisée et sur-mesure.">
+  <meta name="description"
+        content="L'Art du Fil – Père & Fils à Nancy : retouches, pressing, broderie personnalisée et sur-mesure. Travail soigné, service rapide et devis sur demande.">
+
+  <meta name="theme-color" content="#111111">
 
   <style>
     * {
@@ -15,114 +18,718 @@
       box-sizing: border-box;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f4ee;
-      color: #171717;
+    html {
+      scroll-behavior: smooth;
     }
 
-    header {
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f6f2eb;
+      color: #161616;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER */
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(15, 15, 15, 0.96);
+      color: white;
+      padding: 16px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #c5a46d;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    nav a {
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: #c5a46d;
+    }
+
+    .nav-call {
+      border: 1px solid #c5a46d;
+      padding: 9px 15px;
+      color: #c5a46d;
+    }
+
+    /* HERO */
+
+    .hero {
       min-height: 100vh;
+      background:
+        linear-gradient(rgba(10,10,10,.70), rgba(10,10,10,.72)),
+        radial-gradient(circle at 30% 30%, #4d4032, #111);
+      color: white;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 40px 20px;
+      padding: 130px 20px 80px;
     }
 
-    .hero {
-      max-width: 900px;
+    .hero-content {
+      max-width: 950px;
     }
 
-    .brand {
-      color: #a9874f;
+    .eyebrow {
       text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 14px;
-      margin-bottom: 25px;
+      letter-spacing: 5px;
+      color: #c5a46d;
+      font-size: 13px;
+      margin-bottom: 22px;
     }
 
     h1 {
       font-family: Georgia, serif;
-      font-size: clamp(42px, 7vw, 80px);
-      line-height: 1;
+      font-weight: normal;
+      font-size: clamp(48px, 8vw, 88px);
+      line-height: 1.05;
       margin-bottom: 25px;
     }
 
-    .services {
-      font-size: 15px;
+    .hero-services {
       text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 25px;
+      letter-spacing: 3px;
+      font-size: 14px;
+      margin-bottom: 22px;
     }
 
-    .subtitle {
-      font-size: 21px;
-      line-height: 1.6;
-      max-width: 700px;
-      margin: 0 auto 35px;
-      color: #555;
+    .hero-text {
+      max-width: 680px;
+      margin: auto;
+      font-size: 19px;
+      color: #dedede;
     }
 
-    .buttons {
+    .hero-buttons {
       display: flex;
       justify-content: center;
-      gap: 15px;
       flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 38px;
     }
 
     .btn {
       display: inline-block;
-      padding: 16px 28px;
-      text-decoration: none;
+      padding: 15px 24px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
       font-weight: bold;
+      font-size: 13px;
+      transition: 0.25s;
     }
 
-    .btn-primary {
-      background: #171717;
+    .btn-gold {
+      background: #c5a46d;
+      color: #111;
+      border: 1px solid #c5a46d;
+    }
+
+    .btn-dark {
+      border: 1px solid white;
       color: white;
     }
 
-    .btn-secondary {
-      border: 1px solid #171717;
-      color: #171717;
+    .btn:hover {
+      transform: translateY(-2px);
     }
+
+    /* GENERAL */
+
+    section {
+      padding: 90px 7%;
+    }
+
+    .section-head {
+      max-width: 750px;
+      margin: 0 auto 55px;
+      text-align: center;
+    }
+
+    .small-title {
+      color: #a38352;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-family: Georgia, serif;
+      font-weight: normal;
+      font-size: clamp(34px, 5vw, 54px);
+      margin-bottom: 18px;
+    }
+
+    .section-head p {
+      color: #666;
+      font-size: 17px;
+    }
+
+    /* SERVICES */
+
+    .services {
+      background: #fff;
+    }
+
+    .service-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      background: #f7f4ee;
+      padding: 38px 28px;
+      border: 1px solid #e6dfd4;
+      transition: 0.25s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: #c5a46d;
+    }
+
+    .service-number {
+      color: #c5a46d;
+      font-size: 13px;
+      margin-bottom: 22px;
+    }
+
+    .service-card h3 {
+      font-family: Georgia, serif;
+      font-size: 27px;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: #666;
+      font-size: 15px;
+    }
+
+    /* WHY */
+
+    .why {
+      background: #151515;
+      color: white;
+    }
+
+    .why .section-head p {
+      color: #bdbdbd;
+    }
+
+    .why-grid {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .why-box {
+      padding: 30px;
+      border-top: 1px solid #c5a46d;
+    }
+
+    .why-box strong {
+      font-family: Georgia, serif;
+      font-size: 25px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .why-box p {
+      color: #bbb;
+    }
+
+    /* B2B */
+
+    .pro {
+      background: #ece4d8;
+    }
+
+    .pro-inner {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .pro h2 {
+      margin-bottom: 22px;
+    }
+
+    .pro ul {
+      margin: 25px 0;
+      list-style: none;
+    }
+
+    .pro li {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(0,0,0,.10);
+    }
+
+    .pro li::before {
+      content: "✓";
+      color: #9c7844;
+      margin-right: 10px;
+    }
+
+    .pro-box {
+      background: #171717;
+      color: white;
+      padding: 45px;
+    }
+
+    .pro-box h3 {
+      font-family: Georgia, serif;
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .pro-box p {
+      color: #ccc;
+      margin-bottom: 25px;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      background: white;
+    }
+
+    .contact-grid {
+      max-width: 1050px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+
+    .contact-card {
+      background: #f7f4ee;
+      padding: 38px;
+    }
+
+    .contact-card h3 {
+      font-family: Georgia, serif;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .contact-line {
+      margin-bottom: 15px;
+    }
+
+    .contact-line strong {
+      display: block;
+      color: #987745;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* CTA FINAL */
+
+    .final-cta {
+      text-align: center;
+      background: #171717;
+      color: white;
+      padding: 75px 20px;
+    }
+
+    .final-cta h2 {
+      margin-bottom: 15px;
+    }
+
+    .final-cta p {
+      color: #bbb;
+      margin-bottom: 30px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #0d0d0d;
+      color: #999;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    /* FLOATING CALL */
+
+    .floating-call {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: #c5a46d;
+      color: #111;
+      padding: 14px 18px;
+      border-radius: 50px;
+      font-weight: bold;
+      z-index: 1000;
+      box-shadow: 0 8px 25px rgba(0,0,0,.25);
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+      nav a:not(.nav-call) {
+        display: none;
+      }
+
+      .service-grid,
+      .why-grid,
+      .pro-inner,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 70px 6%;
+      }
+
+      .service-grid {
+        gap: 14px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        padding: 13px 5%;
+      }
+
+      .logo {
+        font-size: 17px;
+      }
+
+      .nav-call {
+        font-size: 12px;
+        padding: 8px 11px;
+      }
+
+      .hero {
+        min-height: 92vh;
+      }
+
+      .hero-text {
+        font-size: 17px;
+      }
+
+      .pro-box {
+        padding: 30px;
+      }
+    }
+
   </style>
 </head>
 
 <body>
 
-<header>
-  <div class="hero">
+<header class="navbar">
+  <a href="#" class="logo">
+    L'Art du Fil <span>— Père & Fils</span>
+  </a>
 
-    <p class="brand">Nancy • Artisan textile</p>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#professionnels">Professionnels</a>
+    <a href="#contact">Contact</a>
+    <a href="tel:+33383328456" class="nav-call">03 83 32 84 56</a>
+  </nav>
+</header>
 
-    <h1>
-      L'Art du Fil<br>
-      Père & Fils
-    </h1>
+<main>
 
-    <p class="services">
-      Retouche • Pressing • Broderie • Sur-mesure
-    </p>
+  <section class="hero">
+    <div class="hero-content">
 
-    <p class="subtitle">
-      Le savoir-faire artisanal au service de vos vêtements,
-      au cœur de Nancy.
-    </p>
+      <p class="eyebrow">Atelier textile • Nancy</p>
 
-    <div class="buttons">
-      <a class="btn btn-primary" href="tel:+33383328456">
-        Nous appeler
-      </a>
+      <h1>
+        L'Art du Fil<br>
+        Père & Fils
+      </h1>
 
-      <a class="btn btn-secondary" href="#contact">
-        Demander un devis
-      </a>
+      <p class="hero-services">
+        Retouche • Pressing • Broderie • Sur-mesure
+      </p>
+
+      <p class="hero-text">
+        Un savoir-faire artisanal dédié à vos vêtements.
+        Retouches soignées, entretien textile, broderie personnalisée
+        et créations sur mesure au cœur de Nancy.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="tel:+33383328456" class="btn btn-gold">
+          Nous appeler
+        </a>
+
+        <a href="#contact" class="btn btn-dark">
+          Demander un devis
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="services" id="services">
+
+    <div class="section-head">
+      <p class="small-title">Notre savoir-faire</p>
+      <h2>Un atelier, quatre expertises</h2>
+      <p>
+        De la réparation quotidienne aux projets les plus personnalisés,
+        nous prenons soin de chaque pièce avec précision.
+      </p>
     </div>
 
-  </div>
-</header>
+    <div class="service-grid">
+
+      <article class="service-card">
+        <p class="service-number">01</p>
+        <h3>Retouche</h3>
+        <p>
+          Ourlets, ajustements, reprises, fermetures éclair,
+          manches, transformations et réparations.
+        </p>
+      </article>
+
+      <article class="service-card">
+        <p class="service-number">02</p>
+        <h3>Pressing</h3>
+        <p>
+          Nettoyage et entretien professionnel de vos vêtements
+          avec une attention particulière aux textiles délicats.
+        </p>
+      </article>
+
+      <article class="service-card">
+        <p class="service-number">03</p>
+        <h3>Broderie</h3>
+        <p>
+          Prénoms, logos, vêtements professionnels,
+          cadeaux et personnalisations textiles.
+        </p>
+      </article>
+
+      <article class="service-card">
+        <p class="service-number">04</p>
+        <h3>Sur-mesure</h3>
+        <p>
+          Création, transformation et ajustement de vêtements
+          selon vos envies et votre morphologie.
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="why">
+
+    <div class="section-head">
+      <p class="small-title">Pourquoi nous choisir</p>
+      <h2>Le détail fait la différence</h2>
+      <p>
+        Notre objectif : un résultat propre, durable et adapté
+        à chaque vêtement confié.
+      </p>
+    </div>
+
+    <div class="why-grid">
+
+      <div class="why-box">
+        <strong>Travail soigné</strong>
+        <p>
+          Chaque pièce est examinée avant intervention afin
+          de choisir la solution la plus adaptée.
+        </p>
+      </div>
+
+      <div class="why-box">
+        <strong>Service de proximité</strong>
+        <p>
+          Une boutique physique à Nancy avec un véritable interlocuteur
+          pour discuter de votre besoin.
+        </p>
+      </div>
+
+      <div class="why-box">
+        <strong>Plus qu'une retouche</strong>
+        <p>
+          Couture, entretien, personnalisation et création sont réunis
+          au sein du même atelier.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="pro" id="professionnels">
+
+    <div class="pro-inner">
+
+      <div>
+        <p class="small-title">Professionnels</p>
+
+        <h2>Des solutions textiles pour votre entreprise</h2>
+
+        <p>
+          Nous accompagnons également les professionnels ayant besoin
+          d'un partenaire fiable pour leurs vêtements et textiles.
+        </p>
+
+        <ul>
+          <li>Broderie de logos professionnels</li>
+          <li>Personnalisation de vêtements d'équipe</li>
+          <li>Retouches en série</li>
+          <li>Entretien et pressing professionnel</li>
+          <li>Demandes ponctuelles ou régulières</li>
+        </ul>
+
+        <a href="tel:+33383328456" class="btn btn-gold">
+          Nous contacter
+        </a>
+      </div>
+
+      <div class="pro-box">
+        <h3>Vous êtes un professionnel ?</h3>
+        <p>
+          Boutique, restaurant, hôtel, entreprise, association,
+          artisan ou collectivité : présentez-nous votre besoin
+          et nous étudierons une solution adaptée.
+        </p>
+
+        <a href="tel:+33383328456" class="btn btn-dark">
+          Demander un devis professionnel
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+
+    <div class="section-head">
+      <p class="small-title">Nous trouver</p>
+      <h2>Venez nous rencontrer</h2>
+      <p>
+        Besoin d'une retouche, d'un conseil ou d'un devis ?
+        Passez directement à la boutique ou contactez-nous.
+      </p>
+    </div>
+
+    <div class="contact-grid">
+
+      <div class="contact-card">
+        <h3>L'Art du Fil – Père & Fils</h3>
+
+        <div class="contact-line">
+          <strong>Adresse</strong>
+          16 rue de la Faïencerie<br>
+          54000 Nancy
+        </div>
+
+        <div class="contact-line">
+          <strong>Téléphone</strong>
+          <a href="tel:+33383328456">03 83 32 84 56</a>
+        </div>
+
+        <div class="contact-line">
+          <strong>Horaires</strong>
+          Du lundi au samedi<br>
+          9h00 – 19h00
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h3>Une demande particulière ?</h3>
+
+        <p>
+          Pour une retouche complexe, une broderie,
+          une création sur mesure ou un besoin professionnel,
+          appelle-nous afin que nous puissions étudier ton projet.
+        </p>
+
+        <br>
+
+        <a href="tel:+33383328456" class="btn btn-gold">
+          Appeler la boutique
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="final-cta">
+
+    <p class="small-title">Votre vêtement mérite le bon geste</p>
+
+    <h2>Confiez-nous votre projet</h2>
+
+    <p>
+      Retouche, pressing, broderie ou sur-mesure :
+      échangeons directement sur votre besoin.
+    </p>
+
+    <a href="tel:+33383328456" class="btn btn-gold">
+      03 83 32 84 56
+    </a>
+
+  </section>
+
+</main>
+
+<footer>
+  <strong>L'Art du Fil – Père & Fils</strong><br>
+  Nancy • Retouche • Pressing • Broderie • Sur-mesure<br><br>
+  © 2026 L'Art du Fil – Père & Fils
+</footer>
+
+<a href="tel:+33383328456" class="floating-call">
+  ☎ Appeler
+</a>
 
 </body>
 </html>
