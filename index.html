@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,24 @@
   <title>L'Art du Fil – Père & Fils | Retouche, Pressing & Broderie à Nancy</title>
 
   <meta name="description"
-        content="L'Art du Fil – Père & Fils à Nancy : retouches, pressing, broderie personnalisée et sur-mesure. Travail soigné, service rapide et devis sur demande.">
+        content="L'Art du Fil – Père & Fils à Nancy : retouche de vêtements, pressing, broderie personnalisée et création sur-mesure.">
 
   <meta name="theme-color" content="#111111">
 
+  <!-- POLICES -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
   <style>
+
+    /* =========================
+       RESET
+    ========================== */
+
     * {
       margin: 0;
       padding: 0;
@@ -23,354 +37,1145 @@
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f6f2eb;
-      color: #161616;
-      line-height: 1.6;
+      font-family: "Poppins", sans-serif;
+      background: #f7f4ee;
+      color: #171717;
+      overflow-x: hidden;
     }
 
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
     }
 
-    /* HEADER */
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-    .navbar {
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    section {
+      scroll-margin-top: 85px;
+    }
+
+    /* =========================
+       COULEURS
+    ========================== */
+
+    :root {
+      --black: #111111;
+      --black-soft: #191919;
+      --cream: #f7f4ee;
+      --cream-dark: #ece4d8;
+      --white: #ffffff;
+      --gold: #b9965c;
+      --gold-light: #d4b57d;
+      --grey: #6d6d6d;
+      --border: rgba(185, 150, 92, 0.25);
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    .header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      z-index: 1000;
-      background: rgba(15, 15, 15, 0.96);
-      color: white;
-      padding: 16px 6%;
+      z-index: 9999;
+
+      background: rgba(13, 13, 13, 0.88);
+      backdrop-filter: blur(16px);
+
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+      transition: 0.3s;
+    }
+
+    .header.scrolled {
+      background: rgba(10, 10, 10, 0.98);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    .navbar {
+      width: min(1300px, 92%);
+      margin: auto;
+
+      min-height: 78px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      gap: 30px;
     }
 
-    .logo {
-      font-family: Georgia, serif;
+    .brand {
+      color: white;
+      font-family: "Playfair Display", serif;
       font-size: 22px;
-      font-weight: bold;
-      letter-spacing: 1px;
+      font-weight: 600;
+      line-height: 1.1;
     }
 
-    .logo span {
-      color: #c5a46d;
+    .brand span {
+      display: block;
+      color: var(--gold-light);
+      font-family: "Poppins", sans-serif;
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 4px;
     }
 
-    nav {
+    .nav-links {
       display: flex;
-      gap: 25px;
       align-items: center;
+      gap: 25px;
+      list-style: none;
     }
 
-    nav a {
-      font-size: 14px;
-      transition: 0.2s;
+    .nav-links a {
+      color: #eeeeee;
+      font-size: 13px;
+      font-weight: 400;
+      position: relative;
     }
 
-    nav a:hover {
-      color: #c5a46d;
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: -7px;
+      left: 0;
+
+      width: 0;
+      height: 1px;
+
+      background: var(--gold);
+
+      transition: 0.3s;
     }
 
-    .nav-call {
-      border: 1px solid #c5a46d;
-      padding: 9px 15px;
-      color: #c5a46d;
+    .nav-links a:hover::after {
+      width: 100%;
     }
 
-    /* HERO */
+    .nav-phone {
+      padding: 11px 17px;
+      border: 1px solid var(--gold);
+      color: var(--gold-light) !important;
+    }
+
+    .menu-button {
+      display: none;
+      background: none;
+      border: 0;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
 
     .hero {
       min-height: 100vh;
-      background:
-        linear-gradient(rgba(10,10,10,.70), rgba(10,10,10,.72)),
-        radial-gradient(circle at 30% 30%, #4d4032, #111);
-      color: white;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       text-align: center;
-      padding: 130px 20px 80px;
+      color: white;
+
+      padding: 140px 20px 90px;
+
+      position: relative;
+      overflow: hidden;
+
+      background:
+        radial-gradient(circle at 20% 20%, rgba(185,150,92,0.19), transparent 36%),
+        radial-gradient(circle at 80% 80%, rgba(185,150,92,0.08), transparent 35%),
+        linear-gradient(135deg, #0e0e0e 0%, #181512 50%, #090909 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background-image:
+        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+
+      background-size: 70px 70px;
     }
 
     .hero-content {
-      max-width: 950px;
+      max-width: 1000px;
+      position: relative;
+      z-index: 2;
     }
 
     .eyebrow {
+      color: var(--gold-light);
       text-transform: uppercase;
       letter-spacing: 5px;
-      color: #c5a46d;
-      font-size: 13px;
-      margin-bottom: 22px;
+      font-size: 12px;
+
+      margin-bottom: 23px;
     }
 
-    h1 {
-      font-family: Georgia, serif;
-      font-weight: normal;
-      font-size: clamp(48px, 8vw, 88px);
-      line-height: 1.05;
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(48px, 8vw, 92px);
+      line-height: 1;
+      font-weight: 600;
+
       margin-bottom: 25px;
     }
 
     .hero-services {
       text-transform: uppercase;
       letter-spacing: 3px;
-      font-size: 14px;
-      margin-bottom: 22px;
+
+      font-size: clamp(11px, 1.4vw, 15px);
+      color: #e8dfd2;
+
+      margin-bottom: 28px;
     }
 
-    .hero-text {
-      max-width: 680px;
+    .hero-description {
+      max-width: 760px;
       margin: auto;
-      font-size: 19px;
-      color: #dedede;
+
+      font-family: "Playfair Display", serif;
+      font-size: clamp(18px, 2vw, 23px);
+      line-height: 1.7;
+
+      color: #d7d7d7;
     }
 
     .hero-buttons {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 38px;
+
+      gap: 15px;
+
+      margin-top: 40px;
     }
+
+    /* =========================
+       BUTTONS
+    ========================== */
 
     .btn {
-      display: inline-block;
-      padding: 15px 24px;
+      min-width: 190px;
+
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 15px 25px;
+
+      font-size: 12px;
+      font-weight: 600;
+
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: bold;
-      font-size: 13px;
-      transition: 0.25s;
-    }
 
-    .btn-gold {
-      background: #c5a46d;
-      color: #111;
-      border: 1px solid #c5a46d;
-    }
+      cursor: pointer;
 
-    .btn-dark {
-      border: 1px solid white;
-      color: white;
+      transition:
+        transform .3s,
+        background .3s,
+        color .3s,
+        box-shadow .3s;
     }
 
     .btn:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px);
     }
 
-    /* GENERAL */
-
-    section {
-      padding: 90px 7%;
+    .btn-gold {
+      color: #111;
+      background: var(--gold-light);
+      border: 1px solid var(--gold-light);
     }
 
-    .section-head {
-      max-width: 750px;
-      margin: 0 auto 55px;
+    .btn-gold:hover {
+      box-shadow: 0 12px 30px rgba(185,150,92,.28);
+      background: #e0c18b;
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,.7);
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: #111;
+    }
+
+    .btn-black {
+      background: #111;
+      color: white;
+      border: 1px solid #111;
+    }
+
+    /* =========================
+       GENERAL SECTIONS
+    ========================== */
+
+    .section {
+      padding: 105px 6%;
+    }
+
+    .section-header {
+      max-width: 760px;
+      margin: 0 auto 60px;
       text-align: center;
     }
 
-    .small-title {
-      color: #a38352;
+    .mini-title {
       text-transform: uppercase;
       letter-spacing: 4px;
-      font-size: 12px;
-      margin-bottom: 12px;
+
+      font-size: 11px;
+      color: var(--gold);
+
+      margin-bottom: 15px;
     }
 
     h2 {
-      font-family: Georgia, serif;
-      font-weight: normal;
-      font-size: clamp(34px, 5vw, 54px);
-      margin-bottom: 18px;
-    }
+      font-family: "Playfair Display", serif;
+      font-size: clamp(37px, 5vw, 57px);
+      font-weight: 600;
+      line-height: 1.12;
 
-    .section-head p {
-      color: #666;
-      font-size: 17px;
-    }
-
-    /* SERVICES */
-
-    .services {
-      background: #fff;
-    }
-
-    .service-grid {
-      max-width: 1200px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .service-card {
-      background: #f7f4ee;
-      padding: 38px 28px;
-      border: 1px solid #e6dfd4;
-      transition: 0.25s;
-    }
-
-    .service-card:hover {
-      transform: translateY(-5px);
-      border-color: #c5a46d;
-    }
-
-    .service-number {
-      color: #c5a46d;
-      font-size: 13px;
-      margin-bottom: 22px;
-    }
-
-    .service-card h3 {
-      font-family: Georgia, serif;
-      font-size: 27px;
-      margin-bottom: 12px;
-    }
-
-    .service-card p {
-      color: #666;
-      font-size: 15px;
-    }
-
-    /* WHY */
-
-    .why {
-      background: #151515;
-      color: white;
-    }
-
-    .why .section-head p {
-      color: #bdbdbd;
-    }
-
-    .why-grid {
-      max-width: 1100px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-    }
-
-    .why-box {
-      padding: 30px;
-      border-top: 1px solid #c5a46d;
-    }
-
-    .why-box strong {
-      font-family: Georgia, serif;
-      font-size: 25px;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .why-box p {
-      color: #bbb;
-    }
-
-    /* B2B */
-
-    .pro {
-      background: #ece4d8;
-    }
-
-    .pro-inner {
-      max-width: 1100px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .pro h2 {
-      margin-bottom: 22px;
-    }
-
-    .pro ul {
-      margin: 25px 0;
-      list-style: none;
-    }
-
-    .pro li {
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(0,0,0,.10);
-    }
-
-    .pro li::before {
-      content: "✓";
-      color: #9c7844;
-      margin-right: 10px;
-    }
-
-    .pro-box {
-      background: #171717;
-      color: white;
-      padding: 45px;
-    }
-
-    .pro-box h3 {
-      font-family: Georgia, serif;
-      font-size: 30px;
-      margin-bottom: 15px;
-    }
-
-    .pro-box p {
-      color: #ccc;
-      margin-bottom: 25px;
-    }
-
-    /* CONTACT */
-
-    .contact {
-      background: white;
-    }
-
-    .contact-grid {
-      max-width: 1050px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-    }
-
-    .contact-card {
-      background: #f7f4ee;
-      padding: 38px;
-    }
-
-    .contact-card h3 {
-      font-family: Georgia, serif;
-      font-size: 28px;
       margin-bottom: 20px;
     }
 
-    .contact-line {
+    .section-header p {
+      color: var(--grey);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    /* =========================
+       ANIMATIONS SCROLL
+    ========================== */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+
+      transition:
+        opacity .8s ease,
+        transform .8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       EXPERTISES
+    ========================== */
+
+    .expertises {
+      background: white;
+    }
+
+    .service-grid {
+      width: min(1250px, 100%);
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 18px;
+    }
+
+    .service-card {
+      position: relative;
+      overflow: hidden;
+
+      min-height: 360px;
+
+      padding: 38px 28px;
+
+      display: flex;
+      flex-direction: column;
+
+      background: #f7f4ee;
+
+      border: 1px solid #e7dfd3;
+
+      transition:
+        transform .35s,
+        box-shadow .35s,
+        border-color .35s;
+    }
+
+    .service-card::before {
+      content: "";
+
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      height: 3px;
+      width: 0;
+
+      background: var(--gold);
+
+      transition: .35s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-9px);
+
+      box-shadow: 0 22px 45px rgba(0,0,0,.08);
+
+      border-color: rgba(185,150,92,.6);
+    }
+
+    .service-card:hover::before {
+      width: 100%;
+    }
+
+    .service-icon {
+      width: 54px;
+      height: 54px;
+
+      border: 1px solid var(--gold);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      font-size: 24px;
+
+      margin-bottom: 28px;
+
+      transition: transform .5s;
+    }
+
+    .service-card:hover .service-icon {
+      transform: rotate(8deg) scale(1.08);
+    }
+
+    .service-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 30px;
+
       margin-bottom: 15px;
     }
 
-    .contact-line strong {
-      display: block;
-      color: #987745;
-      font-size: 12px;
+    .service-card p {
+      color: #686868;
+      font-size: 14px;
+      line-height: 1.8;
+
+      flex: 1;
+    }
+
+    .service-link {
+      margin-top: 28px;
+
+      font-size: 11px;
+      font-weight: 600;
+
+      letter-spacing: 1px;
       text-transform: uppercase;
+
+      color: #8d6c3d;
+    }
+
+    /* =========================
+       AVANT APRES
+    ========================== */
+
+    .before-section {
+      background: var(--cream);
+    }
+
+    .comparison {
+      max-width: 950px;
+      height: 520px;
+
+      margin: auto;
+
+      position: relative;
+
+      overflow: hidden;
+
+      background: #292929;
+
+      border-radius: 3px;
+
+      box-shadow: 0 30px 60px rgba(0,0,0,.15);
+    }
+
+    .before-placeholder,
+    .after-placeholder {
+      position: absolute;
+      inset: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      font-family: "Playfair Display", serif;
+      font-size: 30px;
+
+      padding: 30px;
+    }
+
+    .after-placeholder {
+      background:
+        linear-gradient(135deg, #e7ded0, #c9b89f);
+
+      color: #252525;
+    }
+
+    .before-layer {
+      position: absolute;
+      inset: 0;
+
+      width: 50%;
+
+      overflow: hidden;
+
+      border-right: 2px solid white;
+    }
+
+    .before-placeholder {
+      width: 950px;
+
+      background:
+        linear-gradient(135deg, #262626, #555);
+
+      color: white;
+    }
+
+    .comparison-label {
+      position: absolute;
+      top: 20px;
+
+      z-index: 5;
+
+      background: rgba(0,0,0,.7);
+      color: white;
+
+      padding: 8px 13px;
+
+      font-size: 11px;
       letter-spacing: 2px;
     }
 
-    /* CTA FINAL */
+    .label-before {
+      left: 20px;
+    }
+
+    .label-after {
+      right: 20px;
+    }
+
+    .comparison-slider {
+      position: absolute;
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      opacity: 0;
+      cursor: ew-resize;
+
+      z-index: 20;
+    }
+
+    .slider-line {
+      position: absolute;
+      top: 0;
+      left: 50%;
+
+      width: 2px;
+      height: 100%;
+
+      background: white;
+
+      pointer-events: none;
+
+      z-index: 10;
+    }
+
+    .slider-handle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+
+      width: 52px;
+      height: 52px;
+
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: white;
+      color: #111;
+
+      font-size: 18px;
+
+      box-shadow: 0 8px 25px rgba(0,0,0,.25);
+
+      pointer-events: none;
+
+      z-index: 11;
+    }
+
+    .photo-note {
+      max-width: 950px;
+
+      margin: 20px auto 0;
+
+      text-align: center;
+
+      font-size: 12px;
+      color: #777;
+    }
+
+    /* =========================
+       POURQUOI NOUS
+    ========================== */
+
+    .why {
+      color: white;
+      background: #131313;
+    }
+
+    .why .section-header p {
+      color: #bcbcbc;
+    }
+
+    .why-grid {
+      width: min(1150px, 100%);
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 30px;
+    }
+
+    .why-item {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .why-icon {
+      font-size: 31px;
+
+      margin-bottom: 20px;
+
+      display: inline-block;
+
+      transition: transform .3s;
+    }
+
+    .why-item:hover .why-icon {
+      transform: translateY(-7px);
+    }
+
+    .why-item h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 23px;
+
+      margin-bottom: 12px;
+    }
+
+    .why-item p {
+      color: #b7b7b7;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* =========================
+       RETOUCHES
+    ========================== */
+
+    .retouche {
+      background: white;
+    }
+
+    .two-columns {
+      width: min(1150px, 100%);
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      gap: 75px;
+      align-items: start;
+    }
+
+    .content-title h2 {
+      margin-bottom: 20px;
+    }
+
+    .content-title > p {
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .check-list {
+      list-style: none;
+    }
+
+    .check-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid #ececec;
+
+      font-size: 14px;
+    }
+
+    .check-list li::before {
+      content: "✓";
+
+      margin-right: 12px;
+
+      color: var(--gold);
+      font-weight: bold;
+    }
+
+    .price-box {
+      padding: 40px;
+
+      background: var(--cream);
+
+      border: 1px solid #e5ded3;
+    }
+
+    .price-box h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 31px;
+
+      margin-bottom: 24px;
+    }
+
+    .price-line {
+      padding: 15px 0;
+
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+
+      border-bottom: 1px solid #ddd4c7;
+
+      font-size: 14px;
+    }
+
+    .price-line strong {
+      white-space: nowrap;
+    }
+
+    /* =========================
+       PROCESS
+    ========================== */
+
+    .process {
+      background: var(--cream-dark);
+    }
+
+    .process-grid {
+      width: min(1100px, 100%);
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 25px;
+    }
+
+    .process-card {
+      padding: 35px;
+
+      background: rgba(255,255,255,.45);
+    }
+
+    .process-number {
+      font-family: "Playfair Display", serif;
+
+      font-size: 50px;
+      color: var(--gold);
+
+      opacity: .75;
+    }
+
+    .process-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 25px;
+
+      margin: 10px 0;
+    }
+
+    .process-card p {
+      color: #686868;
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    /* =========================
+       PRESSING
+    ========================== */
+
+    .pressing {
+      background: white;
+    }
+
+    .packages {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      gap: 20px;
+
+      margin-top: 30px;
+    }
+
+    .package {
+      border: 1px solid #e3d8c9;
+
+      padding: 30px;
+
+      transition: .3s;
+    }
+
+    .package:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+    }
+
+    .package h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 25px;
+    }
+
+    .package-price {
+      font-size: 28px;
+      font-weight: 600;
+
+      margin: 13px 0;
+    }
+
+    .package p {
+      font-size: 13px;
+      color: #686868;
+    }
+
+    /* =========================
+       BRODERIE
+    ========================== */
+
+    .broderie {
+      color: white;
+      background: #171717;
+    }
+
+    .broderie .content-title > p {
+      color: #bdbdbd;
+    }
+
+    .broderie .check-list li {
+      border-color: #333;
+    }
+
+    .broderie-process {
+      padding: 40px;
+      background: #222;
+      border: 1px solid #333;
+    }
+
+    .broderie-process h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 31px;
+      margin-bottom: 25px;
+    }
+
+    .broderie-step {
+      display: flex;
+      gap: 17px;
+
+      padding: 17px 0;
+
+      border-bottom: 1px solid #383838;
+    }
+
+    .step-circle {
+      min-width: 34px;
+      width: 34px;
+      height: 34px;
+
+      border-radius: 50%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border: 1px solid var(--gold);
+
+      color: var(--gold-light);
+
+      font-size: 12px;
+    }
+
+    /* =========================
+       SUR MESURE
+    ========================== */
+
+    .surmesure {
+      background: var(--cream);
+    }
+
+    .formula-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      gap: 20px;
+
+      margin-top: 30px;
+    }
+
+    .formula {
+      padding: 30px;
+      background: white;
+
+      border-top: 2px solid var(--gold);
+    }
+
+    .formula h3 {
+      font-family: "Playfair Display", serif;
+
+      margin-bottom: 12px;
+      font-size: 23px;
+    }
+
+    .formula p {
+      color: #666;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* =========================
+       TEMOIGNAGES
+    ========================== */
+
+    .testimonials {
+      background: white;
+    }
+
+    .testimonial-wrapper {
+      width: min(850px, 100%);
+      margin: auto;
+
+      overflow: hidden;
+    }
+
+    .testimonial-track {
+      display: flex;
+
+      transition: transform .6s ease;
+    }
+
+    .testimonial {
+      min-width: 100%;
+
+      text-align: center;
+
+      padding: 25px;
+    }
+
+    .quote {
+      font-family: "Playfair Display", serif;
+
+      font-size: clamp(24px, 4vw, 36px);
+      line-height: 1.5;
+
+      margin-bottom: 25px;
+    }
+
+    .testimonial-author {
+      color: var(--gold);
+      font-size: 13px;
+    }
+
+    .example-warning {
+      margin-top: 20px;
+
+      text-align: center;
+
+      color: #999;
+      font-size: 11px;
+    }
+
+    /* =========================
+       CONTACT
+    ========================== */
+
+    .contact {
+      background: #eee7dc;
+    }
+
+    .contact-layout {
+      width: min(1150px, 100%);
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+
+      gap: 40px;
+    }
+
+    .contact-info {
+      padding: 40px;
+      color: white;
+      background: #151515;
+    }
+
+    .contact-info h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 30px;
+
+      margin-bottom: 30px;
+    }
+
+    .info-row {
+      margin-bottom: 23px;
+    }
+
+    .info-label {
+      display: block;
+
+      color: var(--gold-light);
+
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+
+      margin-bottom: 6px;
+    }
+
+    .contact-form {
+      padding: 40px;
+      background: white;
+    }
+
+    .contact-form h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 30px;
+
+      margin-bottom: 25px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      gap: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      display: block;
+
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+
+      margin-bottom: 7px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+
+      padding: 14px 15px;
+
+      background: #faf9f7;
+
+      border: 1px solid #ddd;
+
+      outline: none;
+
+      transition: border .2s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--gold);
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    /* =========================
+       MAP
+    ========================== */
+
+    .map {
+      width: 100%;
+      height: 380px;
+
+      border: 0;
+
+      display: block;
+
+      filter: grayscale(20%);
+    }
+
+    /* =========================
+       FINAL CTA
+    ========================== */
 
     .final-cta {
+      padding: 95px 20px;
+
       text-align: center;
-      background: #171717;
+
       color: white;
-      padding: 75px 20px;
+
+      background:
+        radial-gradient(circle at center, #2a241c 0%, #101010 65%);
     }
 
     .final-cta h2 {
@@ -378,358 +1183,1872 @@
     }
 
     .final-cta p {
-      color: #bbb;
+      color: #c7c7c7;
+
       margin-bottom: 30px;
     }
 
-    /* FOOTER */
+    /* =========================
+       FOOTER
+    ========================== */
 
     footer {
-      background: #0d0d0d;
-      color: #999;
+      padding: 42px 20px;
+
       text-align: center;
-      padding: 30px 20px;
-      font-size: 13px;
+
+      background: #090909;
+      color: #8e8e8e;
+
+      font-size: 12px;
+      line-height: 1.9;
     }
 
     footer strong {
       color: white;
+
+      font-family: "Playfair Display", serif;
+
+      font-size: 18px;
     }
 
-    /* FLOATING CALL */
+    /* =========================
+       FLOATING BUTTONS
+    ========================== */
 
-    .floating-call {
+    .floating-buttons {
       position: fixed;
+
       right: 20px;
       bottom: 20px;
-      background: #c5a46d;
-      color: #111;
-      padding: 14px 18px;
-      border-radius: 50px;
-      font-weight: bold;
-      z-index: 1000;
-      box-shadow: 0 8px 25px rgba(0,0,0,.25);
+
+      z-index: 9000;
+
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
-    /* MOBILE */
+    .floating-button {
+      min-width: 52px;
+      height: 52px;
 
-    @media (max-width: 900px) {
-      nav a:not(.nav-call) {
-        display: none;
-      }
+      padding: 0 17px;
+
+      border-radius: 30px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      box-shadow: 0 10px 25px rgba(0,0,0,.25);
+
+      font-size: 12px;
+      font-weight: 600;
+
+      transition: transform .3s;
+    }
+
+    .floating-button:hover {
+      transform: scale(1.05);
+    }
+
+    .floating-call {
+      background: var(--gold-light);
+      color: #111;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+
+    @media (max-width: 1000px) {
 
       .service-grid,
-      .why-grid,
-      .pro-inner,
-      .contact-grid {
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .two-columns,
+      .contact-layout {
         grid-template-columns: 1fr;
       }
 
-      section {
-        padding: 70px 6%;
+    }
+
+    @media (max-width: 800px) {
+
+      .menu-button {
+        display: block;
       }
 
-      .service-grid {
-        gap: 14px;
+      .nav-links {
+        position: absolute;
+
+        top: 78px;
+        left: 0;
+
+        width: 100%;
+
+        padding: 25px;
+
+        display: none;
+        flex-direction: column;
+
+        background: #111;
       }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-phone {
+        margin-top: 10px;
+      }
+
+      .section {
+        padding: 80px 6%;
+      }
+
+      .process-grid,
+      .packages,
+      .formula-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison {
+        height: 400px;
+      }
+
     }
 
     @media (max-width: 600px) {
-      .navbar {
-        padding: 13px 5%;
-      }
-
-      .logo {
-        font-size: 17px;
-      }
-
-      .nav-call {
-        font-size: 12px;
-        padding: 8px 11px;
-      }
 
       .hero {
-        min-height: 92vh;
+        min-height: 94vh;
+        padding-top: 120px;
       }
 
-      .hero-text {
-        font-size: 17px;
+      .service-grid,
+      .why-grid {
+        grid-template-columns: 1fr;
       }
 
-      .pro-box {
-        padding: 30px;
+      .service-card {
+        min-height: 300px;
       }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.full {
+        grid-column: auto;
+      }
+
+      .contact-form,
+      .contact-info,
+      .price-box,
+      .broderie-process {
+        padding: 28px;
+      }
+
+      .comparison {
+        height: 330px;
+      }
+
+      .before-placeholder {
+        width: 650px;
+      }
+
     }
 
   </style>
 </head>
 
+
 <body>
 
-<header class="navbar">
-  <a href="#" class="logo">
-    L'Art du Fil <span>— Père & Fils</span>
-  </a>
 
-  <nav>
-    <a href="#services">Services</a>
-    <a href="#professionnels">Professionnels</a>
-    <a href="#contact">Contact</a>
-    <a href="tel:+33383328456" class="nav-call">03 83 32 84 56</a>
-  </nav>
-</header>
+<!-- =========================
+     MENU
+========================== -->
 
-<main>
+<header class="header" id="header">
 
-  <section class="hero">
-    <div class="hero-content">
+  <div class="navbar">
 
-      <p class="eyebrow">Atelier textile • Nancy</p>
+    <a href="#accueil" class="brand">
 
-      <h1>
-        L'Art du Fil<br>
-        Père & Fils
-      </h1>
+      L'Art du Fil
 
-      <p class="hero-services">
-        Retouche • Pressing • Broderie • Sur-mesure
-      </p>
+      <span>Père & Fils • Nancy</span>
 
-      <p class="hero-text">
-        Un savoir-faire artisanal dédié à vos vêtements.
-        Retouches soignées, entretien textile, broderie personnalisée
-        et créations sur mesure au cœur de Nancy.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="tel:+33383328456" class="btn btn-gold">
-          Nous appeler
-        </a>
-
-        <a href="#contact" class="btn btn-dark">
-          Demander un devis
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="services" id="services">
-
-    <div class="section-head">
-      <p class="small-title">Notre savoir-faire</p>
-      <h2>Un atelier, quatre expertises</h2>
-      <p>
-        De la réparation quotidienne aux projets les plus personnalisés,
-        nous prenons soin de chaque pièce avec précision.
-      </p>
-    </div>
-
-    <div class="service-grid">
-
-      <article class="service-card">
-        <p class="service-number">01</p>
-        <h3>Retouche</h3>
-        <p>
-          Ourlets, ajustements, reprises, fermetures éclair,
-          manches, transformations et réparations.
-        </p>
-      </article>
-
-      <article class="service-card">
-        <p class="service-number">02</p>
-        <h3>Pressing</h3>
-        <p>
-          Nettoyage et entretien professionnel de vos vêtements
-          avec une attention particulière aux textiles délicats.
-        </p>
-      </article>
-
-      <article class="service-card">
-        <p class="service-number">03</p>
-        <h3>Broderie</h3>
-        <p>
-          Prénoms, logos, vêtements professionnels,
-          cadeaux et personnalisations textiles.
-        </p>
-      </article>
-
-      <article class="service-card">
-        <p class="service-number">04</p>
-        <h3>Sur-mesure</h3>
-        <p>
-          Création, transformation et ajustement de vêtements
-          selon vos envies et votre morphologie.
-        </p>
-      </article>
-
-    </div>
-  </section>
-
-  <section class="why">
-
-    <div class="section-head">
-      <p class="small-title">Pourquoi nous choisir</p>
-      <h2>Le détail fait la différence</h2>
-      <p>
-        Notre objectif : un résultat propre, durable et adapté
-        à chaque vêtement confié.
-      </p>
-    </div>
-
-    <div class="why-grid">
-
-      <div class="why-box">
-        <strong>Travail soigné</strong>
-        <p>
-          Chaque pièce est examinée avant intervention afin
-          de choisir la solution la plus adaptée.
-        </p>
-      </div>
-
-      <div class="why-box">
-        <strong>Service de proximité</strong>
-        <p>
-          Une boutique physique à Nancy avec un véritable interlocuteur
-          pour discuter de votre besoin.
-        </p>
-      </div>
-
-      <div class="why-box">
-        <strong>Plus qu'une retouche</strong>
-        <p>
-          Couture, entretien, personnalisation et création sont réunis
-          au sein du même atelier.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="pro" id="professionnels">
-
-    <div class="pro-inner">
-
-      <div>
-        <p class="small-title">Professionnels</p>
-
-        <h2>Des solutions textiles pour votre entreprise</h2>
-
-        <p>
-          Nous accompagnons également les professionnels ayant besoin
-          d'un partenaire fiable pour leurs vêtements et textiles.
-        </p>
-
-        <ul>
-          <li>Broderie de logos professionnels</li>
-          <li>Personnalisation de vêtements d'équipe</li>
-          <li>Retouches en série</li>
-          <li>Entretien et pressing professionnel</li>
-          <li>Demandes ponctuelles ou régulières</li>
-        </ul>
-
-        <a href="tel:+33383328456" class="btn btn-gold">
-          Nous contacter
-        </a>
-      </div>
-
-      <div class="pro-box">
-        <h3>Vous êtes un professionnel ?</h3>
-        <p>
-          Boutique, restaurant, hôtel, entreprise, association,
-          artisan ou collectivité : présentez-nous votre besoin
-          et nous étudierons une solution adaptée.
-        </p>
-
-        <a href="tel:+33383328456" class="btn btn-dark">
-          Demander un devis professionnel
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="contact" id="contact">
-
-    <div class="section-head">
-      <p class="small-title">Nous trouver</p>
-      <h2>Venez nous rencontrer</h2>
-      <p>
-        Besoin d'une retouche, d'un conseil ou d'un devis ?
-        Passez directement à la boutique ou contactez-nous.
-      </p>
-    </div>
-
-    <div class="contact-grid">
-
-      <div class="contact-card">
-        <h3>L'Art du Fil – Père & Fils</h3>
-
-        <div class="contact-line">
-          <strong>Adresse</strong>
-          16 rue de la Faïencerie<br>
-          54000 Nancy
-        </div>
-
-        <div class="contact-line">
-          <strong>Téléphone</strong>
-          <a href="tel:+33383328456">03 83 32 84 56</a>
-        </div>
-
-        <div class="contact-line">
-          <strong>Horaires</strong>
-          Du lundi au samedi<br>
-          9h00 – 19h00
-        </div>
-      </div>
-
-      <div class="contact-card">
-        <h3>Une demande particulière ?</h3>
-
-        <p>
-          Pour une retouche complexe, une broderie,
-          une création sur mesure ou un besoin professionnel,
-          appelle-nous afin que nous puissions étudier ton projet.
-        </p>
-
-        <br>
-
-        <a href="tel:+33383328456" class="btn btn-gold">
-          Appeler la boutique
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="final-cta">
-
-    <p class="small-title">Votre vêtement mérite le bon geste</p>
-
-    <h2>Confiez-nous votre projet</h2>
-
-    <p>
-      Retouche, pressing, broderie ou sur-mesure :
-      échangeons directement sur votre besoin.
-    </p>
-
-    <a href="tel:+33383328456" class="btn btn-gold">
-      03 83 32 84 56
     </a>
 
-  </section>
 
-</main>
+    <button class="menu-button"
+            id="menuButton"
+            aria-label="Ouvrir le menu">
+
+      ☰
+
+    </button>
+
+
+    <nav>
+
+      <ul class="nav-links" id="navLinks">
+
+        <li><a href="#expertises">Services</a></li>
+
+        <li><a href="#retouche">Retouche</a></li>
+
+        <li><a href="#pressing">Pressing</a></li>
+
+        <li><a href="#broderie">Broderie</a></li>
+
+        <li><a href="#surmesure">Sur-mesure</a></li>
+
+        <li><a href="#contact">Contact</a></li>
+
+        <li>
+          <a href="tel:+33383328456"
+             class="nav-phone">
+
+            03 83 32 84 56
+
+          </a>
+        </li>
+
+      </ul>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+<!-- =========================
+     ACCUEIL
+========================== -->
+
+<section class="hero"
+         id="accueil">
+
+  <div class="hero-content">
+
+    <div class="eyebrow">
+
+      Atelier de couture • Nancy centre
+
+    </div>
+
+
+    <h1>
+
+      L'Art du Fil<br>
+      Père & Fils
+
+    </h1>
+
+
+    <div class="hero-services">
+
+      Retouche • Pressing • Broderie • Sur-Mesure à Nancy
+
+    </div>
+
+
+    <p class="hero-description">
+
+      Donnez une seconde vie à vos vêtements.
+      Un savoir-faire artisanal, une précision d'excellence,
+      au cœur de Nancy.
+
+    </p>
+
+
+    <div class="hero-buttons">
+
+      <a href="#contact"
+         class="btn btn-gold">
+
+        Prendre rendez-vous
+
+      </a>
+
+
+      <a href="#expertises"
+         class="btn btn-outline">
+
+        Voir nos services
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     4 EXPERTISES
+========================== -->
+
+<section class="section expertises"
+         id="expertises">
+
+  <div class="section-header reveal">
+
+    <div class="mini-title">
+
+      Notre savoir-faire
+
+    </div>
+
+    <h2>
+
+      Nos 4 expertises
+
+    </h2>
+
+    <p>
+
+      Du simple ourlet à la création sur-mesure,
+      nous prenons soin de chaque textile avec précision.
+
+    </p>
+
+  </div>
+
+
+  <div class="service-grid">
+
+
+    <article class="service-card reveal">
+
+      <div class="service-icon">✂</div>
+
+      <h3>Retouche</h3>
+
+      <p>
+
+        Ourlets, fermetures éclair, reprises de taille,
+        réparations et transformations.
+        Chaque vêtement est examiné avec soin.
+
+      </p>
+
+      <a class="service-link"
+         href="#retouche">
+
+        Découvrir la retouche →
+
+      </a>
+
+    </article>
+
+
+
+    <article class="service-card reveal">
+
+      <div class="service-icon">◇</div>
+
+      <h3>Pressing</h3>
+
+      <p>
+
+        Lavage, repassage et entretien des textiles délicats.
+        Vos vêtements reviennent propres, contrôlés
+        et prêts à porter.
+
+      </p>
+
+      <a class="service-link"
+         href="#pressing">
+
+        Découvrir le pressing →
+
+      </a>
+
+    </article>
+
+
+
+    <article class="service-card reveal">
+
+      <div class="service-icon">✧</div>
+
+      <h3>Broderie</h3>
+
+      <p>
+
+        Personnalisation de textiles :
+        prénoms, logos et motifs pour particuliers,
+        entreprises et associations.
+
+      </p>
+
+      <a class="service-link"
+         href="#broderie">
+
+        Découvrir la broderie →
+
+      </a>
+
+    </article>
+
+
+
+    <article class="service-card reveal">
+
+      <div class="service-icon">♢</div>
+
+      <h3>Sur-Mesure</h3>
+
+      <p>
+
+        Création de vêtements selon vos mesures,
+        vos envies et votre morphologie,
+        accompagnée par notre équipe.
+
+      </p>
+
+      <a class="service-link"
+         href="#surmesure">
+
+        Découvrir le sur-mesure →
+
+      </a>
+
+    </article>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     AVANT / APRES
+========================== -->
+
+<section class="section before-section">
+
+  <div class="section-header reveal">
+
+    <div class="mini-title">
+
+      Notre travail
+
+    </div>
+
+    <h2>
+
+      Découvrez nos transformations
+
+    </h2>
+
+    <p>
+
+      Faites glisser le curseur pour comparer
+      l'état du vêtement avant et après notre intervention.
+
+    </p>
+
+  </div>
+
+
+  <div class="comparison reveal"
+       id="comparison">
+
+
+    <div class="after-placeholder">
+
+      APRÈS<br>
+      Ta vraie photo sera ajoutée ici
+
+    </div>
+
+
+    <div class="before-layer"
+         id="beforeLayer">
+
+      <div class="before-placeholder">
+
+        AVANT<br>
+        Ta vraie photo sera ajoutée ici
+
+      </div>
+
+    </div>
+
+
+    <span class="comparison-label label-before">
+
+      AVANT
+
+    </span>
+
+
+    <span class="comparison-label label-after">
+
+      APRÈS
+
+    </span>
+
+
+    <div class="slider-line"
+         id="sliderLine">
+
+    </div>
+
+
+    <div class="slider-handle"
+         id="sliderHandle">
+
+      ↔
+
+    </div>
+
+
+    <input
+      class="comparison-slider"
+      id="comparisonSlider"
+      type="range"
+      min="0"
+      max="100"
+      value="50"
+      aria-label="Comparer avant et après">
+
+  </div>
+
+
+  <p class="photo-note">
+
+    Nous remplacerons ces blocs par tes vraies photos
+    de réalisations.
+
+  </p>
+
+</section>
+
+
+
+<!-- =========================
+     POURQUOI NOUS CHOISIR
+========================== -->
+
+<section class="section why">
+
+  <div class="section-header reveal">
+
+    <div class="mini-title">
+
+      Notre différence
+
+    </div>
+
+    <h2>
+
+      Pourquoi nous choisir ?
+
+    </h2>
+
+  </div>
+
+
+  <div class="why-grid">
+
+
+    <div class="why-item reveal">
+
+      <div class="why-icon">✦</div>
+
+      <h3>Savoir-faire familial</h3>
+
+      <p>
+
+        Une aventure père et fils construite autour
+        du vêtement et du travail soigné.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="why-item reveal">
+
+      <div class="why-icon">⌛</div>
+
+      <h3>Rapidité & précision</h3>
+
+      <p>
+
+        Nous recherchons le meilleur équilibre
+        entre délai rapide et qualité de finition.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="why-item reveal">
+
+      <div class="why-icon">◈</div>
+
+      <h3>Conseils personnalisés</h3>
+
+      <p>
+
+        Chaque vêtement est différent.
+        Nous vous conseillons avant toute intervention.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="why-item reveal">
+
+      <div class="why-icon">⌖</div>
+
+      <h3>Au cœur de Nancy</h3>
+
+      <p>
+
+        Notre atelier vous accueille
+        directement en centre-ville.
+
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     RETOUCHE
+========================== -->
+
+<section class="section retouche"
+         id="retouche">
+
+  <div class="two-columns">
+
+
+    <div class="content-title reveal">
+
+      <div class="mini-title">
+
+        Retouche à Nancy
+
+      </div>
+
+
+      <h2>
+
+        Précision artisanale
+
+      </h2>
+
+
+      <p>
+
+        Un ourlet à reprendre, une fermeture éclair cassée
+        ou une robe mal ajustée ?
+        Notre atelier redonne à vos vêtements
+        une coupe adaptée.
+
+      </p>
+
+
+      <ul class="check-list">
+
+        <li>Ourlets pantalons, jeans, jupes et robes</li>
+
+        <li>Reprises de taille et de largeur</li>
+
+        <li>Changement de fermetures éclair</li>
+
+        <li>Réparation de trous et coutures</li>
+
+        <li>Vestes, costumes et manteaux</li>
+
+        <li>Transformations de vêtements</li>
+
+        <li>Retouches cuir selon faisabilité</li>
+
+        <li>Rideaux et linge de maison</li>
+
+      </ul>
+
+    </div>
+
+
+
+    <div class="price-box reveal">
+
+      <div class="mini-title">
+
+        Tarifs indicatifs
+
+      </div>
+
+
+      <h3>
+
+        À partir de
+
+      </h3>
+
+
+      <div class="price-line">
+
+        <span>Ourlet simple</span>
+
+        <strong>12 €</strong>
+
+      </div>
+
+
+      <div class="price-line">
+
+        <span>Fermeture éclair</span>
+
+        <strong>20 €</strong>
+
+      </div>
+
+
+      <div class="price-line">
+
+        <span>Reprise de taille</span>
+
+        <strong>25 €</strong>
+
+      </div>
+
+
+      <p style="font-size:12px;color:#777;margin-top:20px;line-height:1.7;">
+
+        Le prix final dépend du vêtement,
+        du tissu et du travail nécessaire.
+        Un tarif précis est communiqué après examen.
+
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     PROCESS RETOUCHE
+========================== -->
+
+<section class="section process">
+
+  <div class="section-header reveal">
+
+    <div class="mini-title">
+
+      Simple et efficace
+
+    </div>
+
+    <h2>
+
+      Comment ça marche ?
+
+    </h2>
+
+  </div>
+
+
+  <div class="process-grid">
+
+
+    <div class="process-card reveal">
+
+      <div class="process-number">01</div>
+
+      <h3>Dépôt</h3>
+
+      <p>
+
+        Apportez votre vêtement.
+        Nous examinons la pièce avec vous
+        et définissons la retouche nécessaire.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="process-card reveal">
+
+      <div class="process-number">02</div>
+
+      <h3>Ajustement</h3>
+
+      <p>
+
+        La modification est réalisée
+        avec précision dans notre atelier.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="process-card reveal">
+
+      <div class="process-number">03</div>
+
+      <h3>Retrait</h3>
+
+      <p>
+
+        Vous récupérez votre vêtement terminé
+        et vérifiez le résultat.
+
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     PRESSING
+========================== -->
+
+<section class="section pressing"
+         id="pressing">
+
+  <div class="two-columns">
+
+
+    <div class="content-title reveal">
+
+      <div class="mini-title">
+
+        Pressing à Nancy
+
+      </div>
+
+
+      <h2>
+
+        Propre, soigné,
+        prêt à porter
+
+      </h2>
+
+
+      <p>
+
+        Confiez-nous vos vêtements du quotidien
+        ainsi que vos pièces nécessitant
+        un entretien particulier.
+
+      </p>
+
+
+      <ul class="check-list">
+
+        <li>Nettoyage professionnel</li>
+
+        <li>Repassage de chemises</li>
+
+        <li>Pantalons et costumes</li>
+
+        <li>Textiles délicats selon étiquette d'entretien</li>
+
+        <li>Vêtements professionnels</li>
+
+        <li>Linge de maison</li>
+
+      </ul>
+
+    </div>
+
+
+
+    <div class="reveal">
+
+      <div class="mini-title">
+
+        Formules envisagées
+
+      </div>
+
+
+      <div class="packages">
+
+
+        <div class="package">
+
+          <h3>Forfait Chemises</h3>
+
+          <div class="package-price">
+
+            59 €
+
+          </div>
+
+          <p>
+
+            10 chemises / mois
+
+          </p>
+
+        </div>
+
+
+
+        <div class="package">
+
+          <h3>Forfait Garde-robe</h3>
+
+          <div class="package-price">
+
+            79 €
+
+          </div>
+
+          <p>
+
+            10 articles / mois
+
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+      <p style="font-size:11px;color:#999;margin-top:15px;">
+
+        Ces forfaits doivent être confirmés avant publication commerciale définitive.
+
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     BRODERIE
+========================== -->
+
+<section class="section broderie"
+         id="broderie">
+
+  <div class="two-columns">
+
+
+    <div class="content-title reveal">
+
+      <div class="mini-title">
+
+        Broderie personnalisée Nancy
+
+      </div>
+
+
+      <h2>
+
+        Donnez vie à votre idée
+
+      </h2>
+
+
+      <p>
+
+        Personnalisez vos textiles avec une broderie
+        résistante et professionnelle,
+        pour une pièce unique ou une petite série.
+
+      </p>
+
+
+      <ul class="check-list">
+
+        <li>Prénoms et initiales</li>
+
+        <li>Logos d'entreprise</li>
+
+        <li>Polos et vêtements professionnels</li>
+
+        <li>Vestes et casquettes</li>
+
+        <li>Serviettes et peignoirs</li>
+
+        <li>Cadeaux personnalisés</li>
+
+        <li>Associations et clubs</li>
+
+        <li>Restaurants et entreprises</li>
+
+      </ul>
+
+    </div>
+
+
+
+    <div class="broderie-process reveal">
+
+      <div class="mini-title">
+
+        Commander une broderie
+
+      </div>
+
+
+      <h3>
+
+        3 étapes
+
+      </h3>
+
+
+      <div class="broderie-step">
+
+        <div class="step-circle">1</div>
+
+        <div>
+
+          <strong>Envoyez votre projet</strong>
+
+          <p style="color:#aaa;font-size:13px;margin-top:5px;">
+
+            Logo, texte, prénom ou idée.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="broderie-step">
+
+        <div class="step-circle">2</div>
+
+        <div>
+
+          <strong>Recevez votre devis</strong>
+
+          <p style="color:#aaa;font-size:13px;margin-top:5px;">
+
+            Nous analysons le textile,
+            la taille et le motif.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="broderie-step">
+
+        <div class="step-circle">3</div>
+
+        <div>
+
+          <strong>Validation & broderie</strong>
+
+          <p style="color:#aaa;font-size:13px;margin-top:5px;">
+
+            Après validation,
+            votre personnalisation est réalisée.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <br>
+
+
+      <a href="#contact"
+         class="btn btn-gold">
+
+        Demander un devis broderie
+
+      </a>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     SUR MESURE
+========================== -->
+
+<section class="section surmesure"
+         id="surmesure">
+
+  <div class="two-columns">
+
+
+    <div class="content-title reveal">
+
+      <div class="mini-title">
+
+        Création à Nancy
+
+      </div>
+
+
+      <h2>
+
+        Vêtements sur-mesure
+
+      </h2>
+
+
+      <p>
+
+        Vous ne trouvez pas le vêtement parfait ?
+        Créez une pièce adaptée à vos envies.
+        Nous étudions votre projet,
+        vos mesures et les finitions recherchées.
+
+      </p>
+
+
+      <ul class="check-list">
+
+        <li>Robes de cérémonie</li>
+
+        <li>Costumes et pièces ajustées</li>
+
+        <li>Tenues professionnelles</li>
+
+        <li>Créations uniques</li>
+
+      </ul>
+
+    </div>
+
+
+
+    <div class="reveal">
+
+      <div class="formula-grid">
+
+
+        <div class="formula">
+
+          <h3>Votre tissu</h3>
+
+          <p>
+
+            Vous choisissez et apportez votre matière.
+            Nous étudions la réalisation
+            selon vos mesures et votre modèle.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="formula">
+
+          <h3>Projet accompagné</h3>
+
+          <p>
+
+            Nous construisons ensemble
+            le modèle, les proportions,
+            les matières et les finitions.
+
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+      <br>
+
+
+      <a href="#contact"
+         class="btn btn-black">
+
+        Prendre rendez-vous
+
+      </a>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     TEMOIGNAGES
+========================== -->
+
+<section class="section testimonials">
+
+  <div class="section-header reveal">
+
+    <div class="mini-title">
+
+      Témoignages
+
+    </div>
+
+    <h2>
+
+      La satisfaction avant tout
+
+    </h2>
+
+  </div>
+
+
+  <div class="testimonial-wrapper reveal">
+
+    <div class="testimonial-track"
+         id="testimonialTrack">
+
+
+      <div class="testimonial">
+
+        <div class="quote">
+
+          « Robe de mariée retouchée à la perfection,
+          je n'ai jamais été aussi à l'aise. »
+
+        </div>
+
+        <div class="testimonial-author">
+
+          Exemple — témoignage à remplacer
+
+        </div>
+
+      </div>
+
+
+
+      <div class="testimonial">
+
+        <div class="quote">
+
+          « Broderie de notre logo sur les tabliers :
+          résultat propre et professionnel. »
+
+        </div>
+
+        <div class="testimonial-author">
+
+          Exemple — témoignage à remplacer
+
+        </div>
+
+      </div>
+
+
+
+      <div class="testimonial">
+
+        <div class="quote">
+
+          « Service rapide, accueil agréable
+          et travail très soigné. »
+
+        </div>
+
+        <div class="testimonial-author">
+
+          Exemple — témoignage à remplacer
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+  <div class="example-warning">
+
+    ⚠ Ces textes sont des exemples.
+    Remplace-les uniquement par de vrais avis clients.
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTACT
+========================== -->
+
+<section class="section contact"
+         id="contact">
+
+  <div class="section-header reveal">
+
+    <div class="mini-title">
+
+      Contact
+
+    </div>
+
+
+    <h2>
+
+      Parlons de votre projet
+
+    </h2>
+
+
+    <p>
+
+      Pour une retouche, une broderie,
+      un pressing ou une création,
+      contactez-nous ou passez directement à l'atelier.
+
+    </p>
+
+  </div>
+
+
+
+  <div class="contact-layout">
+
+
+    <div class="contact-info reveal">
+
+      <h3>
+
+        L'Art du Fil<br>
+        Père & Fils
+
+      </h3>
+
+
+      <div class="info-row">
+
+        <span class="info-label">
+
+          Adresse
+
+        </span>
+
+        16 rue de la Faïencerie<br>
+        54000 Nancy
+
+      </div>
+
+
+      <div class="info-row">
+
+        <span class="info-label">
+
+          Téléphone
+
+        </span>
+
+        <a href="tel:+33383328456">
+
+          03 83 32 84 56
+
+        </a>
+
+      </div>
+
+
+      <div class="info-row">
+
+        <span class="info-label">
+
+          Horaires
+
+        </span>
+
+        Lundi au samedi<br>
+        9h00 – 19h00
+
+      </div>
+
+
+      <a href="tel:+33383328456"
+         class="btn btn-gold">
+
+        Appeler maintenant
+
+      </a>
+
+    </div>
+
+
+
+    <form class="contact-form reveal"
+          id="contactForm">
+
+      <h3>
+
+        Demander un devis
+
+      </h3>
+
+
+      <div class="form-grid">
+
+
+        <div class="form-group">
+
+          <label for="name">Nom</label>
+
+          <input type="text"
+                 id="name"
+                 required>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="phone">Téléphone</label>
+
+          <input type="tel"
+                 id="phone"
+                 required>
+
+        </div>
+
+
+        <div class="form-group full">
+
+          <label for="email">Email</label>
+
+          <input type="email"
+                 id="email">
+
+        </div>
+
+
+        <div class="form-group full">
+
+          <label for="service">Service souhaité</label>
+
+          <select id="service">
+
+            <option>Retouche</option>
+
+            <option>Pressing</option>
+
+            <option>Broderie</option>
+
+            <option>Sur-mesure</option>
+
+            <option>Professionnel</option>
+
+            <option>Autre</option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group full">
+
+          <label for="message">Votre demande</label>
+
+          <textarea
+            id="message"
+            placeholder="Décrivez votre besoin..."></textarea>
+
+        </div>
+
+
+        <div class="form-group full">
+
+          <button type="submit"
+                  class="btn btn-black">
+
+            Préparer ma demande
+
+          </button>
+
+        </div>
+
+
+      </div>
+
+
+      <p style="font-size:11px;color:#999;line-height:1.6;">
+
+        Le formulaire préparera votre demande.
+        Nous connecterons ensuite l'envoi direct
+        lorsque tu me donneras l'adresse email
+        ou le numéro WhatsApp à utiliser.
+
+      </p>
+
+    </form>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     MAP
+========================== -->
+
+<iframe
+  class="map"
+  src="https://www.google.com/maps?q=16+rue+de+la+Fa%C3%AFencerie+54000+Nancy&output=embed"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+  title="L'Art du Fil Père & Fils à Nancy">
+</iframe>
+
+
+
+<!-- =========================
+     CTA
+========================== -->
+
+<section class="final-cta">
+
+  <div class="reveal">
+
+    <div class="mini-title">
+
+      L'Art du Fil – Père & Fils
+
+    </div>
+
+
+    <h2>
+
+      Votre vêtement mérite le meilleur.
+
+    </h2>
+
+
+    <p>
+
+      Contactez-nous pour un devis
+      ou passez directement à la boutique.
+
+    </p>
+
+
+    <a href="tel:+33383328456"
+       class="btn btn-gold">
+
+      Nous contacter
+
+    </a>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================== -->
 
 <footer>
-  <strong>L'Art du Fil – Père & Fils</strong><br>
-  Nancy • Retouche • Pressing • Broderie • Sur-mesure<br><br>
+
+  <strong>
+
+    L'Art du Fil – Père & Fils
+
+  </strong>
+
+  <br>
+
+  Retouche • Pressing • Broderie • Sur-Mesure
+
+  <br>
+
+  16 rue de la Faïencerie • 54000 Nancy
+
+  <br>
+
+  03 83 32 84 56
+
+  <br><br>
+
   © 2026 L'Art du Fil – Père & Fils
+
 </footer>
 
-<a href="tel:+33383328456" class="floating-call">
-  ☎ Appeler
-</a>
+
+
+<!-- BOUTON FLOTTANT -->
+
+<div class="floating-buttons">
+
+  <a href="tel:+33383328456"
+     class="floating-button floating-call">
+
+    ☎ Appeler
+
+  </a>
+
+</div>
+
+
+
+<script>
+
+  /* =========================
+     HEADER SCROLL
+  ========================== */
+
+  const header =
+    document.getElementById("header");
+
+  window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 50) {
+
+      header.classList.add("scrolled");
+
+    } else {
+
+      header.classList.remove("scrolled");
+
+    }
+
+  });
+
+
+
+  /* =========================
+     MENU MOBILE
+  ========================== */
+
+  const menuButton =
+    document.getElementById("menuButton");
+
+  const navLinks =
+    document.getElementById("navLinks");
+
+  menuButton.addEventListener("click", () => {
+
+    navLinks.classList.toggle("open");
+
+  });
+
+
+  document
+    .querySelectorAll(".nav-links a")
+    .forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        navLinks.classList.remove("open");
+
+      });
+
+    });
+
+
+
+  /* =========================
+     ANIMATIONS AU SCROLL
+  ========================== */
+
+  const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+  const observer =
+    new IntersectionObserver(
+
+      entries => {
+
+        entries.forEach(entry => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add("visible");
+
+            observer.unobserve(entry.target);
+
+          }
+
+        });
+
+      },
+
+      {
+        threshold: 0.12
+      }
+
+    );
+
+
+  revealElements.forEach(element => {
+
+    observer.observe(element);
+
+  });
+
+
+
+  /* =========================
+     AVANT / APRES
+  ========================== */
+
+  const slider =
+    document.getElementById("comparisonSlider");
+
+  const beforeLayer =
+    document.getElementById("beforeLayer");
+
+  const sliderLine =
+    document.getElementById("sliderLine");
+
+  const sliderHandle =
+    document.getElementById("sliderHandle");
+
+
+  slider.addEventListener("input", event => {
+
+    const value =
+      event.target.value;
+
+    beforeLayer.style.width =
+      value + "%";
+
+    sliderLine.style.left =
+      value + "%";
+
+    sliderHandle.style.left =
+      value + "%";
+
+  });
+
+
+
+  /* =========================
+     TEMOIGNAGES AUTO
+  ========================== */
+
+  const testimonialTrack =
+    document.getElementById("testimonialTrack");
+
+  const testimonials =
+    document.querySelectorAll(".testimonial");
+
+  let currentTestimonial = 0;
+
+
+  setInterval(() => {
+
+    currentTestimonial++;
+
+    if (
+      currentTestimonial >=
+      testimonials.length
+    ) {
+
+      currentTestimonial = 0;
+
+    }
+
+    testimonialTrack.style.transform =
+      `translateX(-${currentTestimonial * 100}%)`;
+
+  }, 5000);
+
+
+
+  /* =========================
+     FORMULAIRE
+  ========================== */
+
+  document
+    .getElementById("contactForm")
+    .addEventListener(
+      "submit",
+      function(event) {
+
+        event.preventDefault();
+
+        const name =
+          document.getElementById("name").value;
+
+        const service =
+          document.getElementById("service").value;
+
+        alert(
+          "Merci " +
+          name +
+          ". Votre demande concernant « " +
+          service +
+          " » est prête. Nous allons maintenant connecter l'envoi réel du formulaire."
+        );
+
+      }
+    );
+
+</script>
+
 
 </body>
 </html>
